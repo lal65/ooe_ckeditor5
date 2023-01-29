@@ -1,0 +1,30 @@
+ooe_ckeditor5_accordion:
+  ckeditor5:
+    plugins:
+      - accordion.Accordion
+  drupal:
+    label: Accordion
+    library: ooe_ckeditor5/accordion
+    admin_library: ooe_ckeditor5/admin.accordion
+    toolbar_items:
+      accordion:
+        label: Accordion
+    elements:
+      - <div>
+      - <button>
+      - <span>
+      - <h2>
+      - <h3>
+      - <h4>
+      - <h5>
+      - <svg>
+      - <svg class="sprite sprite--fas-plus">
+      - <div class="accordion">
+      - <button class="accordion__button">
+      - <h2 class="accordion__heading">
+      - <h3 class="accordion__heading">
+      - <h4 class="accordion__heading">
+      - <h5 class="accordion__heading">
+      - <span class="accordion__label">
+      - <span class="accordion__sprite">
+      - <div class="accordion--expandable-content">

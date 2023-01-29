@@ -1,0 +1,7 @@
+name: OOE CKEditor5 Integrations
+type: module
+description: "Provides a CKEditor5 binding to the OOE design system components"
+package: CKEditor 5
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:ckeditor5
