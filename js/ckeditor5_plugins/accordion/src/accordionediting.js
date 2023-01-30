@@ -25,20 +25,10 @@ export default class AccordionEditing extends Plugin {
       allowWhere: '$block',
     });
 
-    schema.register('accordionHeading', {
-
-    });
-
     schema.register('accordionButton', {
-      isLimit: false,
+      isLimit: true,
       allowIn: 'accordion',
       allowContentOf: '$block',
-    });
-
-    schema.register('accordionLabel', {
-      inheritAllFrom: '$inlineObject', // <-- ???
-      isLimit: true,
-      allowIn: 'accordionButton',
     });
 
     schema.register('accordionContent', {
@@ -62,17 +52,9 @@ export default class AccordionEditing extends Plugin {
     conversion.for('upcast').elementToElement({
       model: 'accordionButton',
       view: {
-        name: 'span',
+        name: 'button',
         classes: 'accordion__button',
       },
-    });
-
-    conversion.for('upcast').elementToElement({
-      model: 'accordionLabel',
-      view: {
-        name: 'span',
-        classes: 'accordion__label',
-      }
     });
 
     conversion.for('upcast').elementToElement({
@@ -94,17 +76,9 @@ export default class AccordionEditing extends Plugin {
     conversion.for('dataDowncast').elementToElement({
       model: 'accordionButton',
       view: {
-        name: 'span',
+        name: 'button',
         classes: 'accordion__button',
       },
-    });
-
-    conversion.for('dataDowncast').elementToElement({
-      model: 'accordionLabel',
-      view: {
-        name: 'span',
-        classes: 'accordion__label',
-      }
     });
 
     conversion.for('dataDowncast').elementToElement({
@@ -129,20 +103,10 @@ export default class AccordionEditing extends Plugin {
     conversion.for('editingDowncast').elementToElement({
       model: 'accordionButton',
       view: (modelElement, { writer: viewWriter }) => {
-        const button = viewWriter.createEditableElement('span', {
+        const button = viewWriter.createEditableElement('button', {
           class: 'accordion__button',
         });
-        return toWidget(button, viewWriter);
-      },
-    });
-
-    conversion.for('editingDowncast').elementToElement({
-      model: 'accordionLabel',
-      view: (modelElement, { writer: viewWriter }) => {
-        const label = viewWriter.createEditableElement('span', {
-          class: 'accordion__label',
-        });
-        return toWidgetEditable(label, viewWriter);
+        return toWidgetEditable(button, viewWriter);
       },
     });
 

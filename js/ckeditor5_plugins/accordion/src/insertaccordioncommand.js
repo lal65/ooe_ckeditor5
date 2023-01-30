@@ -35,23 +35,14 @@ export default class InsertAccordionCommand extends Command {
 }
 
 function createAccordion(writer) {
-  // Create instances of the three elements registered with the editor in
-  // accordionediting.js.
   const accordion = writer.createElement('accordion');
-  const accordionToggle = writer.createElement('accordionToggle');
-  const accordionLabel = writer.createElement('accordionLabel');
+  const accordionButton = writer.createElement('accordionButton');
   const accordionContent = writer.createElement('accordionContent');
 
-  // Append the title and description elements to the accordion, which matches
-  // the parent/child relationship as defined in their schemas.
-  writer.append(accordionToggle, accordion);
-  writer.append(accordionLabel, accordionToggle);
+  writer.append(accordionButton, accordion);
   writer.append(accordionContent, accordion);
-  writer.insertText('Accordion label', accordionLabel);
+  writer.insertText('Accordion label', accordionButton);
   writer.insertText('Accordion content', accordionContent);
-  // The accordionContent text content will automatically be wrapped in a
-  // `<p>`.
 
-  // Return the element to be added to the editor.
   return accordion;
 }
